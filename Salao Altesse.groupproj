@@ -1,0 +1,242 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{4B4DBAAD-08BC-4B6B-8304-4C4FB9A1719D}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="SMC.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="DLL\Funcoes\Funcoes.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="DLL\Modulo Cadastro\CadCategorias.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="DLL\Modulo Cadastro\CadClientes.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="DLL\Modulo Cadastro\Pesquisar.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="DLL\Modulo Cadastro\CadFornecedores.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="DLL\Modulo Cadastro\CadFuncionarios.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="DLL\Modulo Cadastro\CadPessoal.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="DLL\Modulo Cadastro\CadProdutos.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="DLL\Modulo Cadastro\CadServicos.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="DLL\Modulo Agenda\Agenda.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Server\Salao_Server.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="SMC">
+        <MSBuild Projects="SMC.dproj"/>
+    </Target>
+    <Target Name="SMC:Clean">
+        <MSBuild Projects="SMC.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="SMC:Make">
+        <MSBuild Projects="SMC.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Funcoes">
+        <MSBuild Projects="DLL\Funcoes\Funcoes.dproj"/>
+    </Target>
+    <Target Name="Funcoes:Clean">
+        <MSBuild Projects="DLL\Funcoes\Funcoes.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Funcoes:Make">
+        <MSBuild Projects="DLL\Funcoes\Funcoes.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="CadCategorias">
+        <MSBuild Projects="DLL\Modulo Cadastro\CadCategorias.dproj"/>
+    </Target>
+    <Target Name="CadCategorias:Clean">
+        <MSBuild Projects="DLL\Modulo Cadastro\CadCategorias.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="CadCategorias:Make">
+        <MSBuild Projects="DLL\Modulo Cadastro\CadCategorias.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="CadClientes">
+        <MSBuild Projects="DLL\Modulo Cadastro\CadClientes.dproj"/>
+    </Target>
+    <Target Name="CadClientes:Clean">
+        <MSBuild Projects="DLL\Modulo Cadastro\CadClientes.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="CadClientes:Make">
+        <MSBuild Projects="DLL\Modulo Cadastro\CadClientes.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Pesquisar">
+        <MSBuild Projects="DLL\Modulo Cadastro\Pesquisar.dproj"/>
+    </Target>
+    <Target Name="Pesquisar:Clean">
+        <MSBuild Projects="DLL\Modulo Cadastro\Pesquisar.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Pesquisar:Make">
+        <MSBuild Projects="DLL\Modulo Cadastro\Pesquisar.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="CadFornecedores">
+        <MSBuild Projects="DLL\Modulo Cadastro\CadFornecedores.dproj"/>
+    </Target>
+    <Target Name="CadFornecedores:Clean">
+        <MSBuild Projects="DLL\Modulo Cadastro\CadFornecedores.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="CadFornecedores:Make">
+        <MSBuild Projects="DLL\Modulo Cadastro\CadFornecedores.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="CadFuncionarios">
+        <MSBuild Projects="DLL\Modulo Cadastro\CadFuncionarios.dproj"/>
+    </Target>
+    <Target Name="CadFuncionarios:Clean">
+        <MSBuild Projects="DLL\Modulo Cadastro\CadFuncionarios.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="CadFuncionarios:Make">
+        <MSBuild Projects="DLL\Modulo Cadastro\CadFuncionarios.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="CadPessoal">
+        <MSBuild Projects="DLL\Modulo Cadastro\CadPessoal.dproj"/>
+    </Target>
+    <Target Name="CadPessoal:Clean">
+        <MSBuild Projects="DLL\Modulo Cadastro\CadPessoal.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="CadPessoal:Make">
+        <MSBuild Projects="DLL\Modulo Cadastro\CadPessoal.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="CadProdutos">
+        <MSBuild Projects="DLL\Modulo Cadastro\CadProdutos.dproj"/>
+    </Target>
+    <Target Name="CadProdutos:Clean">
+        <MSBuild Projects="DLL\Modulo Cadastro\CadProdutos.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="CadProdutos:Make">
+        <MSBuild Projects="DLL\Modulo Cadastro\CadProdutos.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="CadServicos">
+        <MSBuild Projects="DLL\Modulo Cadastro\CadServicos.dproj"/>
+    </Target>
+    <Target Name="CadServicos:Clean">
+        <MSBuild Projects="DLL\Modulo Cadastro\CadServicos.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="CadServicos:Make">
+        <MSBuild Projects="DLL\Modulo Cadastro\CadServicos.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Agenda">
+        <MSBuild Projects="DLL\Modulo Agenda\Agenda.dproj"/>
+    </Target>
+    <Target Name="Agenda:Clean">
+        <MSBuild Projects="DLL\Modulo Agenda\Agenda.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Agenda:Make">
+        <MSBuild Projects="DLL\Modulo Agenda\Agenda.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Salao_Server">
+        <MSBuild Projects="Server\Salao_Server.dproj"/>
+    </Target>
+    <Target Name="Salao_Server:Clean">
+        <MSBuild Projects="Server\Salao_Server.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Salao_Server:Make">
+        <MSBuild Projects="Server\Salao_Server.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="SMC;Funcoes;CadCategorias;CadClientes;Pesquisar;CadFornecedores;CadFuncionarios;CadPessoal;CadProdutos;CadServicos;Agenda;Salao_Server"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="SMC:Clean;Funcoes:Clean;CadCategorias:Clean;CadClientes:Clean;Pesquisar:Clean;CadFornecedores:Clean;CadFuncionarios:Clean;CadPessoal:Clean;CadProdutos:Clean;CadServicos:Clean;Agenda:Clean;Salao_Server:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="SMC:Make;Funcoes:Make;CadCategorias:Make;CadClientes:Make;Pesquisar:Make;CadFornecedores:Make;CadFuncionarios:Make;CadPessoal:Make;CadProdutos:Make;CadServicos:Make;Agenda:Make;Salao_Server:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+    <ItemGroup Condition="'$(BuildGroup)'=='Módulo Cadastro'">
+        <BuildGroupProject Include="DLL\Modulo Cadastro\CadPessoal.dproj">
+            <ProjectGuid>{E8EA736D-8158-499D-95AD-6C97F6F54CED}</ProjectGuid>
+            <Configurations>Debug</Configurations>
+            <Platforms>Win32</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="DLL\Modulo Cadastro\CadCategorias.dproj">
+            <ProjectGuid>{16260F69-B913-4806-91E2-A20D25B779E7}</ProjectGuid>
+            <Configurations>Debug</Configurations>
+            <Platforms>Win32</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="DLL\Modulo Cadastro\CadClientes.dproj">
+            <ProjectGuid>{C8F3BA9E-415C-4800-A551-5F89BD2FA480}</ProjectGuid>
+            <Configurations>Debug</Configurations>
+            <Platforms>Win32</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="DLL\Modulo Cadastro\CadFuncionarios.dproj">
+            <ProjectGuid>{C2470F79-18C6-4370-BBC5-739F755F36B8}</ProjectGuid>
+            <Configurations>Debug</Configurations>
+            <Platforms>Win32</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="SMC.dproj">
+            <ProjectGuid>{03311A8D-0ED1-4D22-B0C1-7C544DF121DA}</ProjectGuid>
+            <Configurations>Debug</Configurations>
+            <Platforms>Win32</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="DLL\Modulo Cadastro\Pesquisar.dproj">
+            <ProjectGuid>{7812D800-2AE7-4750-AD27-ECCE8E8E703D}</ProjectGuid>
+            <Configurations>Debug</Configurations>
+            <Platforms>Win32</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="DLL\Funcoes\Funcoes.dproj">
+            <ProjectGuid>{2565B1BE-E498-4E02-8671-E6942EF615D3}</ProjectGuid>
+            <Configurations>Debug</Configurations>
+            <Platforms>Win32</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="DLL\Modulo Cadastro\CadFornecedores.dproj">
+            <ProjectGuid>{815EBEE1-7920-449C-861D-364EE2A834C0}</ProjectGuid>
+            <Configurations>Debug</Configurations>
+            <Platforms>Win32</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="DLL\Modulo Agenda\Agenda.dproj">
+            <ProjectGuid>{4927016E-D2EB-4BA8-8AFC-3D501994B73D}</ProjectGuid>
+            <Configurations>Debug</Configurations>
+            <Platforms>Win32</Platforms>
+            <Enabled>False</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="DLL\Modulo Cadastro\CadProdutos.dproj">
+            <ProjectGuid>{7CFEA247-A2FF-4E7E-A42D-A5B4ACECE753}</ProjectGuid>
+            <Configurations>Debug</Configurations>
+            <Platforms>Win32</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="DLL\Modulo Cadastro\CadServicos.dproj">
+            <ProjectGuid>{A4F931BC-2706-44AC-B6EE-64375ED69CFE}</ProjectGuid>
+            <Configurations>Debug</Configurations>
+            <Platforms>Win32</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="Server\Salao_Server.dproj">
+            <ProjectGuid>{8AE5822C-ACBB-4858-8003-C1F403415618}</ProjectGuid>
+            <Configurations>Debug</Configurations>
+            <Platforms>Win32</Platforms>
+            <Enabled>False</Enabled>
+        </BuildGroupProject>
+    </ItemGroup>
+</Project>

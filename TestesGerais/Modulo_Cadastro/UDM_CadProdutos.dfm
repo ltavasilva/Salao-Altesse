@@ -1,0 +1,374 @@
+object DM_CadProdutos: TDM_CadProdutos
+  OldCreateOrder = False
+  Height = 329
+  Width = 580
+  object Conexao: TADOConnection
+    ConnectionString = 
+      'Provider=MSDASQL.1;Password="";Persist Security Info=True;User I' +
+      'D=root;Data Source=modular'
+    LoginPrompt = False
+    Provider = 'MSDASQL.1'
+    Left = 24
+    Top = 8
+  end
+  object ds_Tp_Fornecedores: TDataSource
+    AutoEdit = False
+    DataSet = Qp_Fornecedores
+    Left = 136
+    Top = 56
+  end
+  object Qry_Busca: TADOQuery
+    Connection = Conexao
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'select * from modular.tbl_pessoal pes '
+      
+        'inner join modular.tbl_fornecedores forn on pes.id_pessoal = for' +
+        'n.id_fornec '
+      
+        'left join modular.tbl_itens itm on forn.id_fornec = itm.id_forne' +
+        'cedor '
+      
+        'left join modular.tbl_aux_tipo_itens atip on itm.id_tipo_item = ' +
+        'atip.id_tipo_item '
+      
+        'left join modular.tbl_aux_categoria_itens acat on itm.id_categor' +
+        'ia = acat.id_categoria ')
+    Left = 24
+    Top = 112
+    object Qry_Buscaid_item: TIntegerField
+      FieldName = 'id_item'
+    end
+    object Qry_Buscacod_barras: TStringField
+      FieldName = 'cod_barras'
+      Size = 45
+    end
+    object Qry_Buscadescricao: TStringField
+      FieldName = 'descricao'
+      Size = 45
+    end
+    object Qry_Buscaid_tipo_item_1: TAutoIncField
+      FieldName = 'id_tipo_item_1'
+      ReadOnly = True
+    end
+    object Qry_Buscadescricao_1: TStringField
+      DisplayLabel = 'Tipo'
+      FieldName = 'descricao_1'
+      Size = 45
+    end
+    object Qry_Buscadescricao_2: TStringField
+      DisplayLabel = 'Categoria'
+      FieldName = 'descricao_2'
+      Size = 45
+    end
+    object Qry_Buscaid_pessoal: TAutoIncField
+      FieldName = 'id_pessoal'
+      ReadOnly = True
+    end
+    object Qry_Buscanome: TStringField
+      FieldName = 'nome'
+      Size = 150
+    end
+    object Qry_Buscacnpj: TStringField
+      FieldName = 'cnpj'
+      Size = 15
+    end
+    object Qry_Buscainfo_geral: TMemoField
+      FieldName = 'info_geral'
+      BlobType = ftMemo
+    end
+  end
+  object ds_Qry_Busca: TDataSource
+    DataSet = Qry_Busca
+    Left = 24
+    Top = 160
+  end
+  object Qry_Exec: TADOQuery
+    Connection = Conexao
+    CursorType = ctStatic
+    Parameters = <>
+    Left = 24
+    Top = 56
+  end
+  object Tp_Produtos: TADOTable
+    Connection = Conexao
+    CursorType = ctStatic
+    AfterOpen = Tp_ProdutosAfterOpen
+    BeforeClose = Tp_ProdutosBeforeClose
+    AfterInsert = Tp_ProdutosAfterInsert
+    IndexFieldNames = 'id_fornecedor'
+    MasterFields = 'id_fornec'
+    MasterSource = ds_Tp_Fornecedores
+    TableName = 'tbl_itens'
+    Left = 256
+    Top = 8
+    object Tp_Produtosid_item: TIntegerField
+      FieldName = 'id_item'
+    end
+    object Tp_Produtoscod_barras: TStringField
+      FieldName = 'cod_barras'
+      Size = 45
+    end
+    object Tp_Produtosid_tipo_item: TIntegerField
+      FieldName = 'id_tipo_item'
+    end
+    object Tp_Produtosdescricao: TStringField
+      FieldName = 'descricao'
+      Size = 45
+    end
+    object Tp_Produtosid_fornecedor: TIntegerField
+      FieldName = 'id_fornecedor'
+    end
+    object Tp_Produtosid_categoria: TIntegerField
+      FieldName = 'id_categoria'
+    end
+    object Tp_Produtostmp_execucao: TIntegerField
+      FieldName = 'tmp_execucao'
+    end
+    object Tp_Produtostaxa_lucro: TFloatField
+      FieldName = 'taxa_lucro'
+    end
+    object Tp_Produtoscusto_aquisicao: TFloatField
+      FieldName = 'custo_aquisicao'
+    end
+    object Tp_ProdutosCategoria: TStringField
+      FieldKind = fkLookup
+      FieldName = 'Categoria'
+      LookupDataSet = Ta_Categoria
+      LookupKeyFields = 'id_categoria'
+      LookupResultField = 'descricao'
+      KeyFields = 'id_categoria'
+      Lookup = True
+    end
+  end
+  object ds_Tp_Produtos: TDataSource
+    AutoEdit = False
+    DataSet = Tp_Produtos
+    Left = 256
+    Top = 56
+  end
+  object Ta_Categoria: TADOTable
+    Connection = Conexao
+    CursorType = ctStatic
+    Filter = 'id_tipo = 2'
+    Filtered = True
+    TableName = 'tbl_aux_categoria_itens'
+    Left = 352
+    Top = 8
+    object Ta_Categoriaid_categoria: TAutoIncField
+      FieldName = 'id_categoria'
+      ReadOnly = True
+    end
+    object Ta_Categoriaid_tipo: TIntegerField
+      FieldName = 'id_tipo'
+    end
+    object Ta_Categoriadescricao: TStringField
+      FieldName = 'descricao'
+      Size = 45
+    end
+  end
+  object ds_Ta_Categoria: TDataSource
+    AutoEdit = False
+    DataSet = Ta_Categoria
+    Left = 352
+    Top = 56
+  end
+  object TP_Plan_STK: TADOTable
+    Connection = Conexao
+    CursorType = ctStatic
+    IndexFieldNames = 'id_item'
+    MasterFields = 'id_item'
+    MasterSource = ds_Tp_Produtos
+    TableName = 'tbl_planejamento_estoque'
+    Left = 256
+    Top = 160
+    object TP_Plan_STKid_item: TIntegerField
+      FieldName = 'id_item'
+    end
+    object TP_Plan_STKqtd_min: TFloatField
+      FieldName = 'qtd_min'
+    end
+    object TP_Plan_STKqtd_max: TFloatField
+      FieldName = 'qtd_max'
+    end
+    object TP_Plan_STKtamanho_lote: TFloatField
+      FieldName = 'tamanho_lote'
+    end
+    object TP_Plan_STKstk_seguranca: TFloatField
+      FieldName = 'stk_seguranca'
+    end
+    object TP_Plan_STKleadtime: TIntegerField
+      FieldName = 'leadtime'
+    end
+  end
+  object DS_TP_Plan_STK: TDataSource
+    AutoEdit = False
+    DataSet = TP_Plan_STK
+    Left = 256
+    Top = 208
+  end
+  object CDS_Produtos: TClientDataSet
+    Active = True
+    Aggregates = <>
+    FieldDefs = <
+      item
+        Name = 'id_item'
+        DataType = ftInteger
+      end
+      item
+        Name = 'cod_barras'
+        DataType = ftString
+        Size = 45
+      end
+      item
+        Name = 'id_tipo_item'
+        DataType = ftInteger
+      end
+      item
+        Name = 'descricao'
+        DataType = ftString
+        Size = 45
+      end
+      item
+        Name = 'id_fornecedor'
+        DataType = ftInteger
+      end
+      item
+        Name = 'id_categoria'
+        DataType = ftInteger
+      end
+      item
+        Name = 'tmp_execucao'
+        DataType = ftInteger
+      end
+      item
+        Name = 'taxa_lucro'
+        DataType = ftFloat
+      end
+      item
+        Name = 'custo_aquisicao'
+        DataType = ftFloat
+      end>
+    IndexDefs = <>
+    Params = <>
+    StoreDefs = True
+    Left = 256
+    Top = 104
+    Data = {
+      E70000009619E0BD010000001800000009000000000003000000E7000769645F
+      6974656D04000100000000000A636F645F626172726173010049000000010005
+      5749445448020002002D000C69645F7469706F5F6974656D0400010000000000
+      0964657363726963616F0100490000000100055749445448020002002D000D69
+      645F666F726E656365646F7204000100000000000C69645F63617465676F7269
+      6104000100000000000C746D705F657865637563616F04000100000000000A74
+      6178615F6C7563726F08000400000000000F637573746F5F6171756973696361
+      6F08000400000000000000}
+    object CDS_Produtosid_item: TIntegerField
+      FieldName = 'id_item'
+    end
+    object CDS_Produtoscod_barras: TStringField
+      FieldName = 'cod_barras'
+      Size = 45
+    end
+    object CDS_Produtosid_tipo_item: TIntegerField
+      FieldName = 'id_tipo_item'
+    end
+    object CDS_Produtosdescricao: TStringField
+      FieldName = 'descricao'
+      Size = 45
+    end
+    object CDS_Produtosid_fornecedor: TIntegerField
+      FieldName = 'id_fornecedor'
+    end
+    object CDS_Produtosid_categoria: TIntegerField
+      FieldName = 'id_categoria'
+    end
+    object CDS_Produtostmp_execucao: TIntegerField
+      FieldName = 'tmp_execucao'
+    end
+    object CDS_Produtostaxa_lucro: TFloatField
+      FieldName = 'taxa_lucro'
+    end
+    object CDS_Produtoscusto_aquisicao: TFloatField
+      FieldName = 'custo_aquisicao'
+    end
+    object CDS_ProdutosCategoria: TStringField
+      FieldKind = fkLookup
+      FieldName = 'Categoria'
+      LookupDataSet = Ta_Categoria
+      LookupKeyFields = 'id_categoria'
+      LookupResultField = 'descricao'
+      KeyFields = 'id_categoria'
+      Lookup = True
+    end
+  end
+  object CDS_Plan_STK: TClientDataSet
+    Active = True
+    Aggregates = <>
+    Params = <>
+    Left = 256
+    Top = 256
+    Data = {
+      860000009619E0BD01000000180000000600000000000300000086000769645F
+      6974656D0400010000000000077174645F6D696E080004000000000007717464
+      5F6D617808000400000000000C74616D616E686F5F6C6F746508000400000000
+      000D73746B5F7365677572616E63610800040000000000086C65616474696D65
+      04000100000000000000}
+    object CDS_Plan_STKid_item: TIntegerField
+      FieldName = 'id_item'
+    end
+    object CDS_Plan_STKqtd_min: TFloatField
+      FieldName = 'qtd_min'
+    end
+    object CDS_Plan_STKqtd_max: TFloatField
+      FieldName = 'qtd_max'
+    end
+    object CDS_Plan_STKtamanho_lote: TFloatField
+      FieldName = 'tamanho_lote'
+    end
+    object CDS_Plan_STKstk_seguranca: TFloatField
+      FieldName = 'stk_seguranca'
+    end
+    object CDS_Plan_STKleadtime: TIntegerField
+      FieldName = 'leadtime'
+    end
+  end
+  object Qp_Fornecedores: TADOQuery
+    Connection = Conexao
+    CursorType = ctStatic
+    AfterOpen = Qp_FornecedoresAfterOpen
+    AfterClose = Qp_FornecedoresAfterClose
+    Parameters = <>
+    SQL.Strings = (
+      'select forn.id_fornec, pes.nome, forn.cnpj, forn.dat_ult_atend, '
+      'forn.info_geral, forn.foto'
+      'from tbl_pessoal pes '
+      
+        'inner join tbl_fornecedores forn on pes.id_pessoal = forn.id_for' +
+        'nec')
+    Left = 136
+    Top = 8
+    object Qp_Fornecedoresid_fornec: TIntegerField
+      FieldName = 'id_fornec'
+    end
+    object Qp_Fornecedoresnome: TStringField
+      FieldName = 'nome'
+      Size = 150
+    end
+    object Qp_Fornecedorescnpj: TStringField
+      FieldName = 'cnpj'
+      Size = 18
+    end
+    object Qp_Fornecedoresdat_ult_atend: TDateTimeField
+      FieldName = 'dat_ult_atend'
+    end
+    object Qp_Fornecedoresinfo_geral: TMemoField
+      FieldName = 'info_geral'
+      BlobType = ftMemo
+    end
+    object Qp_Fornecedoresfoto: TBlobField
+      FieldName = 'foto'
+    end
+  end
+end
